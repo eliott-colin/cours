@@ -1,0 +1,33 @@
+.container {
+    background-color: rgb(210, 230, 247);
+    padding: 3em;
+  }
+  input,
+  label {
+    color: #6300a0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+  }
+  
+  .form__group {
+    padding: 1em;
+  }
+  input {
+    border: 2px solid #fff;
+    border-radius: 100rem;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+    width: 100%;
+    background: #fff;
+    transition : all 1s;
+  }
+  
+  input:focus {
+    border: 2px solid #6300a0;  
+  }
+  
+  input:not(:focus):invalid {
+    background: #b20a37;
+    border: 2px solid #b20a37;
+    color: #fff;
+  }

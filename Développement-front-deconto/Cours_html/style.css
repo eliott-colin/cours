@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #dbdbdb;
+    background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+main{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+}
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+header div img{
+    width: 50px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+}
+.ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.li{
+    text-transform: uppercase;
+    color: white;
+    list-style-type: none;
+}
+.recipe{
+    display: flex;
+    gap: 50%;
+}
+footer{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+footer p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+}
+section{
+    display: flex;
+    gap: 25%;
+}
+section img {
+    width: 100%;
+}
+
+@media screen and (max-width:1024px) {
+    main{
+        width: 80%;
+        padding: 5%;
+    }
+}
+@media screen and (max-width:425px) {
+    section{
+        display: block;
+    }
+    .recipe{
+        display: block;
+    }
+    header{
+        margin: auto;
+        display: block;
+    }
+    .ul{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+    }
+    header div{
+        display: flex;
+        justify-content: center;
+    }
+    body{
+        margin-bottom: 15%;
+    }
+    footer p {
+        display: flex;
+        justify-content: center;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

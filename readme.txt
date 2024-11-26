@@ -1,3 +1,3 @@
  ---------------------------
-|    Voici mon portfolio    |
+|    Cours en tout genre   |
  ---------------------------

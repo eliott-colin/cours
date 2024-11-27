@@ -1,22 +1,33 @@
 let select = document.querySelector("select")
 let main = document.querySelector("main")
 let generation = 1
+let data = []
 select.addEventListener("change", async (event) => {
     generation = event.target.value
     main.innerHTML = ""
     loadData(generation);
   });
 
-function loadData(generation){   
+function loadData(generation, data2=""){   
+        main.innerHTML = ""
 async function getData(generation) {
+    let dataModif;
     //récup données
-    const data = await fetch(`https://pokebuildapi.fr/api/v1/pokemon/generation/${generation}`)
-    .then(response => response.json())
-    .catch(error => alert("Erreur : " + error));
-    console.log(data);
+    if (data2=="") {
+        data = await fetch(`https://pokebuildapi.fr/api/v1/pokemon/generation/${generation}`)
+        .then(response => response.json())
+        .catch(error => alert("Erreur : " + error));
+        dataModif= data;
+    } else {
+        console.log("test ss")
+        dataModif = data2
+    }
+    console.log(data)
+
+
     
     //récup article + affiche article
-    data.forEach(element => {
+    dataModif.forEach(element => {
         let article = document.createElement("article")
         article.innerHTML = `
         <figure>
@@ -40,7 +51,6 @@ async function getData(generation) {
         </figure>`
  
       document.querySelector("main").append(article)
-        console.log(element)
     });
 
       //Changer couleur carte
@@ -133,3 +143,25 @@ async function getData(generation) {
 getData(generation)
 }
 loadData(generation);
+
+
+async function filters() {
+    const typesFilters = await fetch(`https://pokebuildapi.fr/api/v1/types`)
+    .then(response => response.json())
+    .catch(error => alert("Erreur : " + error));
+    //console.log(typesFilters);
+    typesFilters.forEach(element => {
+        let div = document.createElement("div")
+        div.innerHTML = `<div>
+            <img src="${element.image}" alt="Image du type ${element.name}">
+            <p>${element.name}</p>
+        </div>`;
+        div.addEventListener("click", async (event) => {
+            console.log("sss")
+            let newData = data.filter(pokemon => pokemon.apiTypes[1] ? pokemon.apiTypes[1].name === element.name : pokemon.apiTypes[0].name === element.name);
+            loadData(generation,newData)
+        });
+        document.querySelector("#types").append(div);
+});
+}
+filters();

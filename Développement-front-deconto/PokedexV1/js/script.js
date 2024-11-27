@@ -1,6 +1,16 @@
-async function getData(...params) {
+let select = document.querySelector("select")
+let main = document.querySelector("main")
+let generation = 1
+select.addEventListener("change", async (event) => {
+    generation = event.target.value
+    main.innerHTML = ""
+    loadData(generation);
+  });
+
+function loadData(generation){   
+async function getData(generation) {
     //récup données
-    const data = await fetch("https://pokebuildapi.fr/api/v1/pokemon/generation/1")
+    const data = await fetch(`https://pokebuildapi.fr/api/v1/pokemon/generation/${generation}`)
     .then(response => response.json())
     .catch(error => alert("Erreur : " + error));
     console.log(data);
@@ -120,22 +130,6 @@ async function getData(...params) {
         return ""
     }
 }
-
-getData();
-
-
-{/* <picture>
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image Bulbizarre" />
-</picture>
-<figcaption>
-<span class="types">Plante</span>
-<h2>Bulbizarre</h2>
-<ol>
-  <li>Points de vie : 39</li>
-  <li>Attaque : 52</li>
-  <li>Défense : 43</li>
-  <li>Attaque spécial : 60</li>
-  <li>Vitesse : 65</li>
-</ol>
-</figcaption>
-</figure> */}
+getData(generation)
+}
+loadData(generation);

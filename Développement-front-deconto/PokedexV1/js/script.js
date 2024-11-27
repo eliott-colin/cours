@@ -12,6 +12,7 @@ function loadData(generation, data2=""){
         main.innerHTML = ""
 async function getData(generation) {
     let dataModif;
+    
     //récup données
     if (data2=="") {
         data = await fetch(`https://pokebuildapi.fr/api/v1/pokemon/generation/${generation}`)
@@ -19,16 +20,20 @@ async function getData(generation) {
         .catch(error => alert("Erreur : " + error));
         dataModif= data;
     } else {
-        console.log("test ss")
         dataModif = data2
     }
     console.log(data)
-
 
     
     //récup article + affiche article
     dataModif.forEach(element => {
         let article = document.createElement("article")
+        createCards(article, element)
+        document.querySelector("main").append(article)
+    });
+
+    //update cards
+    function createCards(article, element) {
         article.innerHTML = `
         <figure>
           <picture>
@@ -49,9 +54,8 @@ async function getData(generation) {
             </ol>
           </figcaption>
         </figure>`
- 
-      document.querySelector("main").append(article)
-    });
+        
+    }
 
       //Changer couleur carte
       function doubleType(element) {

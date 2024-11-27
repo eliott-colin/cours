@@ -1,0 +1,12 @@
+[
+    {
+        "numPokedex":1,
+        "name": "Bulbizarre",
+        "type": "Plantes"
+    },
+    {
+        "numPokedex":3,
+        "name": "Salamèche",
+        "type": "Feu"
+    }
+]

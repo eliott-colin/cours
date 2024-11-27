@@ -150,8 +150,9 @@
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 5%;
-    width: 800px;
+    margin: auto;
+    margin-top: 5%;
+    width: 65%;
   }
   
   #types > div {
@@ -169,6 +170,9 @@
   }
   
   #types > div img {
-    width: 100%;
+    width: 70%;
+  }
+  #types p {
+    margin: 0;
   }
   

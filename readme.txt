@@ -1,8 +1,9 @@
- ---------------------------
-|         Projets          |
- ---------------------------
+```
+---------------------------
+|         Projets         |
+---------------------------
 
-
-Pokédex en cours de dev : 
-
-https://eliott-colin.github.io/cours/D%C3%A9veloppement-front-deconto/PokedexV1/index.html
+📌 Pokédex :
+Ce projet utilisait l'API pokebuildapi.fr.
+⚠️ Celle-ci n'est désormais plus maintenue et n'est plus accessible, ce qui empêche le bon fonctionnement de l'application.
+```
